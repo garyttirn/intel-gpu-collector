@@ -174,7 +174,7 @@ VictoriaMetrics automatically maps measurements and fields to Prometheus-style m
 ## Grafana Dashboard (Grafana 13+)
 
 1. In Grafana, navigate to **Dashboards → New → Import**.
-2. Paste the contents of `grafana-dashboard.json` (or upload the file) and click **Load**.
+2. Paste the contents of `intel-gpu-top-influxdb1-grafana-dashboard.json` (or upload the file) and click **Load**.
 3. Select your **InfluxDB** data source from the **Data Source** dropdown at the top of the dashboard.
 4. *(Recommended)* In your Grafana InfluxDB data source settings, set **Min time interval** to `30s` to match `SAMPLE_MS=30000` and avoid empty intervals when zooming in.
 

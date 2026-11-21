@@ -1,0 +1,22 @@
+[Unit]
+Description=Intel GPU Top Metrics Collector for InfluxDB / VictoriaMetrics
+After=network-online.target influxdb.service
+Wants=network-online.target
+
+[Service]
+Type=simple
+User=nobody
+Group=nogroup
+EnvironmentFile=/etc/default/intel-gpu-collector
+ExecStart=/usr/bin/python3 -u /usr/local/sbin/intel_gpu_collector.py
+
+# Grant permission to read GPU performance counters without running as root
+AmbientCapabilities=CAP_PERFMON
+CapabilityBoundingSet=CAP_PERFMON
+
+# Restart automatically if intel_gpu_top or the script exits
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
